@@ -12,13 +12,18 @@ const getSum = () => {
 	})
 
 	const table = document.querySelector("table");
+	const existingAnsRow = document.querySelector("#ans");
+	if (existingAnsRow) {
+	    existingAnsRow.parentElement.remove(); // remove the whole <tr>
+  }
 	const newRow = document.createElement("tr");
 	const newCell = document.createElement("td");
 
-
+	newCell.id = "ans"; 
 	newCell.colSpan = 2; 
     newCell.textContent = `Total Price: Rs ${total}`;
     newCell.style.fontWeight = "bold";
+	
 
     newRow.appendChild(newCell);
     table.appendChild(newRow);
